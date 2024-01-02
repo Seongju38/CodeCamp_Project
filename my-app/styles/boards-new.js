@@ -42,16 +42,18 @@ export const WriterInput = styled.input`
   padding-left: 16px;
 `;
 
-export const TitleInput = styled.input`
+export const SubjectInput = styled.input`
   width: 996px;
   height: 52px;
   border: 1px solid #bdbdbd;
+  padding-left: 16px;
 `;
 
-export const ContentInput = styled.input`
+export const ContentInput = styled.textarea`
   width: 996px;
   height: 480px;
   border: 1px solid #bdbdbd;
+  padding: 14px;
 `;
 
 export const ZipCodeWrapper = styled.div`

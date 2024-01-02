@@ -5,7 +5,7 @@ import {
   InputWrapper,
   Label,
   WriterInput,
-  TitleInput,
+  SubjectInput,
   ContentInput,
   ZipCodeWrapper,
   ZipCodeInput,
@@ -37,7 +37,7 @@ export default function () {
       </WriterWrapper>
       <InputWrapper>
         <Label>제목</Label>
-        <TitleInput type="text" placeholder="제목을 작성해주세요." />
+        <SubjectInput type="text" placeholder="제목을 작성해주세요." />
       </InputWrapper>
       <InputWrapper>
         <Label>내용</Label>
