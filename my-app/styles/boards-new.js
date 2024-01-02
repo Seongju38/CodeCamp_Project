@@ -65,14 +65,17 @@ export const ZipCodeInput = styled.input`
   width: 77px;
   height: 52px;
   border: 1px solid #bdbdbd;
-  text-align: center;
+  padding-left: 16px;
 `;
 
 export const ZipCodeButton = styled.button`
+  width: 124px;
+  height: 52px;
   padding: 14px 16px;
   background: black;
   color: white;
   margin-left: 16px;
+  cursor: pointer;
 `;
 
 export const AddressInput = styled.input`
@@ -80,12 +83,14 @@ export const AddressInput = styled.input`
   height: 52px;
   border: 1px solid #bdbdbd;
   margin-top: 16px;
+  padding-left: 16px;
 `;
 
 export const YoutubeInput = styled.input`
   width: 996px;
-  height: 45.783px;
+  height: 52px;
   border: 1px solid #bdbdbd;
+  padding-left: 16px;
 `;
 
 export const ImageWrapper = styled.div`
