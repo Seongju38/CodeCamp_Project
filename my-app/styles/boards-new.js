@@ -42,6 +42,12 @@ export const WriterInput = styled.input`
   padding-left: 16px;
 `;
 
+export const ErrorMsg = styled.div`
+  font-size: 12px;
+  color: red;
+  text-align: center;
+`
+
 export const SubjectInput = styled.input`
   width: 996px;
   height: 52px;
