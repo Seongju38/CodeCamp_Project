@@ -94,6 +94,7 @@ export const YoutubeInput = styled.input`
 `;
 
 export const ImageWrapper = styled.div`
+  width: 996px;
   padding-top: 40px;
 `;
 
@@ -105,9 +106,13 @@ export const ImageUploadButton = styled.button`
   font-size: 12px;
   font-weight: 500;
   margin-right: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 `;
 
 export const OptionWrapper = styled.div`
+  width: 996px;
   padding-top: 40px;
 `;
 
@@ -118,6 +123,7 @@ export const RadioBoxWrapper = styled.div`
 export const RadioButton = styled.input`
   width: 24px;
   height: 24px;
+  cursor: pointer;
 `;
 
 export const RadioLabel = styled.label`
@@ -128,9 +134,12 @@ export const RadioLabel = styled.label`
 `;
 
 export const SubmitButton = styled.button`
-  padding: 14px 60px;
+  width: 179px;
+  height: 52px;
+  border: none;
   background: #ffd600;
-  margin: 80px 380px 100px 412px;
+  margin: 0 12px;
   font-size: 16px;
   font-weight: 500;
+  cursor: pointer
 `;
