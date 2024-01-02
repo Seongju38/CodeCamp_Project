@@ -1,15 +1,14 @@
 import styled from "@emotion/styled";
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   width: 1200px;
-  background: white;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.2);
+  margin: 100px;
+  padding: 80px 102px 100px 102px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
-  padding: 60px 103px 100px 101px;
-  margin: 101px 160px 280px;
+  align-items: center;
+  border: none;
+  box-shadow: 0px 0px 10px gray;
 `;
 
 export const Title = styled.div`

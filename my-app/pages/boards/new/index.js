@@ -1,5 +1,5 @@
 import {
-  Container,
+  Wrapper,
   Title,
   WriterWrapper,
   InputWrapper,
@@ -23,7 +23,7 @@ import {
 
 export default function () {
   return (
-    <Container>
+    <Wrapper>
       <Title>게시물 등록</Title>
       <WriterWrapper>
         <InputWrapper>
@@ -78,6 +78,6 @@ export default function () {
         </RadioBoxWrapper>
       </OptionWrapper>
       <SubmitButton>등록하기</SubmitButton>
-    </Container>
+    </Wrapper>
   );
 }
