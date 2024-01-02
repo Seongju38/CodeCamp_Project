@@ -12,15 +12,17 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 36px;
   font-weight: 700;
-  padding: 60px 0px 40px 412px;
 `;
 
 export const WriterWrapper = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-top: 40px;
 `;
 
 export const InputWrapper = styled.div`
@@ -30,7 +32,6 @@ export const InputWrapper = styled.div`
 export const Label = styled.div`
   font-size: 16px;
   font-weight: 400px;
-  padding-top: 20px;
   padding-bottom: 21px;
 `;
 
@@ -38,7 +39,7 @@ export const WriterInput = styled.input`
   width: 486px;
   height: 52px;
   border: 1px solid #bdbdbd;
-  margin-right: 12px;
+  padding-left: 16px;
 `;
 
 export const TitleInput = styled.input`
