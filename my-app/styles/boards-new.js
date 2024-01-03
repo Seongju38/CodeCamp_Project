@@ -46,7 +46,7 @@ export const ErrorMsg = styled.div`
   font-size: 12px;
   color: red;
   text-align: center;
-`
+`;
 
 export const SubjectInput = styled.input`
   width: 996px;
@@ -82,6 +82,11 @@ export const ZipCodeButton = styled.button`
   color: white;
   margin-left: 16px;
   cursor: pointer;
+`;
+
+export const ZipCodeErrorMsg = styled.div`
+  font-size: 12px;
+  color: red;
 `;
 
 export const AddressInput = styled.input`
@@ -147,5 +152,5 @@ export const SubmitButton = styled.button`
   margin: 0 12px;
   font-size: 16px;
   font-weight: 500;
-  cursor: pointer
+  cursor: pointer;
 `;

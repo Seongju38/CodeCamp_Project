@@ -12,6 +12,7 @@ import {
   ZipCodeWrapper,
   ZipCodeInput,
   ZipCodeButton,
+  ZipCodeErrorMsg,
   AddressInput,
   YoutubeInput,
   ImageWrapper,
@@ -43,41 +44,71 @@ export default function () {
 
   const onChangeWriter = (event) => {
     setWriter(event.target.value);
-  }
+
+    if (!writer) {
+      setWriterErrorMsg("");
+    }
+  };
 
   const onChangePassword = (event) => {
     setPassword(event.target.value);
-  }
+
+    if (!password) {
+      setPasswordErrorMsg("");
+    }
+  };
 
   const onChangeSubject = (event) => {
     setSubject(event.target.value);
-  }
+
+    if (!subject) {
+      setSubjectErrorMsg("");
+    }
+  };
 
   const onChangeContent = (event) => {
     setContent(event.target.value);
-  }
+
+    if (!content) {
+      setContentErrorMsg("");
+    }
+  };
 
   const onChangeZipCode = (event) => {
     setZipCode(event.target.value);
-  }
+  };
 
   const onClickZipCodeBtn = () => {
-    if (zipCode === "" && isNaN(zipCode)) {
+    if (zipCode === "" || isNaN(zipCode)) {
       setZipCodeErrorMsg("올바른 우편번호를 입력해주세요.");
+    } else {
+      setZipCodeErrorMsg("");
     }
-  }
+  };
 
   const onChangeAddress = (event) => {
     setAddress(event.target.value);
-  }
+
+    if (!address) {
+      setAddressErrorMsg("");
+    }
+  };
 
   const onChangeAddressDetail = (event) => {
     setAddressDetail(event.target.value);
-  }
+
+    if (!addressDetail) {
+      setAddressErrorMsg("");
+    }
+  };
 
   const onChangeYoutube = (event) => {
     setYoutube(event.target.value);
-  }
+
+    if (!youtube) {
+      setYoutubeErrorMsg("");
+    }
+  };
 
   const onClickSubmitBtn = () => {
     if (writer === "") {
@@ -96,14 +127,14 @@ export default function () {
       setContentErrorMsg("내용을 입력해주세요.");
     }
 
-    // if (writer === "") {
-    //   setWriterErrorMsg("작성자를 입력해주세요.");
-    // }
+    if (address === "" || addressDetail === "") {
+      setAddressErrorMsg("주소를 입력해주세요.");
+    }
 
     if (youtube === "") {
       setYoutubeErrorMsg("유튜브 링크를 입력해주세요.");
     }
-  }
+  };
 
   return (
     <Wrapper>
@@ -111,38 +142,60 @@ export default function () {
       <WriterWrapper>
         <InputWrapper>
           <Label>작성자</Label>
-          <WriterInput type="text" placeholder="이름을 적어주세요." onChange={onChangeWriter} />
+          <WriterInput
+            type="text"
+            placeholder="이름을 적어주세요."
+            onChange={onChangeWriter}
+          />
           <ErrorMsg>{writerErrorMsg}</ErrorMsg>
         </InputWrapper>
         <InputWrapper>
           <Label>비밀번호</Label>
-          <WriterInput type="password" placeholder="비밀번호를 입력해주세요." onChange={onChangePassword} />
+          <WriterInput
+            type="password"
+            placeholder="비밀번호를 입력해주세요."
+            onChange={onChangePassword}
+          />
           <ErrorMsg>{passwordErrorMsg}</ErrorMsg>
         </InputWrapper>
       </WriterWrapper>
       <InputWrapper>
         <Label>제목</Label>
-        <SubjectInput type="text" placeholder="제목을 작성해주세요." onChange={onChangeSubject} />
+        <SubjectInput
+          type="text"
+          placeholder="제목을 작성해주세요."
+          onChange={onChangeSubject}
+        />
         <ErrorMsg>{subjectErrorMsg}</ErrorMsg>
       </InputWrapper>
       <InputWrapper>
         <Label>내용</Label>
-        <ContentInput type="text" placeholder="내용을 작성해주세요." onChange={onChangeContent} />
+        <ContentInput
+          type="text"
+          placeholder="내용을 작성해주세요."
+          onChange={onChangeContent}
+        />
         <ErrorMsg>{contentErrorMsg}</ErrorMsg>
       </InputWrapper>
       <InputWrapper>
         <Label>주소</Label>
         <ZipCodeWrapper>
           <ZipCodeInput placeholder="07250" onChange={onChangeZipCode} />
-          <ErrorMsg>{zipCodeErrorMsg}</ErrorMsg>
-          <ZipCodeButton onClick={onClickZipCodeBtn}>우편번호 검색</ZipCodeButton>
+          <ZipCodeButton onClick={onClickZipCodeBtn}>
+            우편번호 검색
+          </ZipCodeButton>
         </ZipCodeWrapper>
+        <ZipCodeErrorMsg>{zipCodeErrorMsg}</ZipCodeErrorMsg>
         <AddressInput onChange={onChangeAddress} />
         <AddressInput onChange={onChangeAddressDetail} />
+        <ErrorMsg>{addressErrorMsg}</ErrorMsg>
       </InputWrapper>
       <InputWrapper>
         <Label>유튜브</Label>
-        <YoutubeInput placeholder="링크를 복사해주세요." onChange={onChangeYoutube} />
+        <YoutubeInput
+          placeholder="링크를 복사해주세요."
+          onChange={onChangeYoutube}
+        />
         <ErrorMsg>{youtubeErrorMsg}</ErrorMsg>
       </InputWrapper>
       <ImageWrapper>
