@@ -12,7 +12,6 @@ import {
   ZipCodeWrapper,
   ZipCodeInput,
   ZipCodeButton,
-  ZipCodeErrorMsg,
   AddressInput,
   YoutubeInput,
   ImageWrapper,
@@ -29,18 +28,11 @@ export default function () {
   const [password, setPassword] = useState("");
   const [subject, setSubject] = useState("");
   const [content, setContent] = useState("");
-  const [zipCode, setZipCode] = useState("");
-  const [address, setAddress] = useState("");
-  const [addressDetail, setAddressDetail] = useState("");
-  const [youtube, setYoutube] = useState("");
 
   const [writerErrorMsg, setWriterErrorMsg] = useState("");
   const [passwordErrorMsg, setPasswordErrorMsg] = useState("");
   const [subjectErrorMsg, setSubjectErrorMsg] = useState("");
   const [contentErrorMsg, setContentErrorMsg] = useState("");
-  const [zipCodeErrorMsg, setZipCodeErrorMsg] = useState("");
-  const [addressErrorMsg, setAddressErrorMsg] = useState("");
-  const [youtubeErrorMsg, setYoutubeErrorMsg] = useState("");
 
   const onChangeWriter = (event) => {
     setWriter(event.target.value);
@@ -74,42 +66,6 @@ export default function () {
     }
   };
 
-  const onChangeZipCode = (event) => {
-    setZipCode(event.target.value);
-  };
-
-  const onClickZipCodeBtn = () => {
-    if (zipCode === "" || isNaN(zipCode)) {
-      setZipCodeErrorMsg("올바른 우편번호를 입력해주세요.");
-    } else {
-      setZipCodeErrorMsg("");
-    }
-  };
-
-  const onChangeAddress = (event) => {
-    setAddress(event.target.value);
-
-    if (!address) {
-      setAddressErrorMsg("");
-    }
-  };
-
-  const onChangeAddressDetail = (event) => {
-    setAddressDetail(event.target.value);
-
-    if (!addressDetail) {
-      setAddressErrorMsg("");
-    }
-  };
-
-  const onChangeYoutube = (event) => {
-    setYoutube(event.target.value);
-
-    if (!youtube) {
-      setYoutubeErrorMsg("");
-    }
-  };
-
   const onClickSubmitBtn = () => {
     if (writer === "") {
       setWriterErrorMsg("작성자를 입력해주세요.");
@@ -127,12 +83,8 @@ export default function () {
       setContentErrorMsg("내용을 입력해주세요.");
     }
 
-    if (address === "" || addressDetail === "") {
-      setAddressErrorMsg("주소를 입력해주세요.");
-    }
-
-    if (youtube === "") {
-      setYoutubeErrorMsg("유튜브 링크를 입력해주세요.");
+    if (writer && password && subject && content) {
+      alert("게시글이 등록되었습니다.");
     }
   };
 
@@ -180,23 +132,17 @@ export default function () {
       <InputWrapper>
         <Label>주소</Label>
         <ZipCodeWrapper>
-          <ZipCodeInput placeholder="07250" onChange={onChangeZipCode} />
-          <ZipCodeButton onClick={onClickZipCodeBtn}>
+          <ZipCodeInput placeholder="07250" />
+          <ZipCodeButton>
             우편번호 검색
           </ZipCodeButton>
         </ZipCodeWrapper>
-        <ZipCodeErrorMsg>{zipCodeErrorMsg}</ZipCodeErrorMsg>
-        <AddressInput onChange={onChangeAddress} />
-        <AddressInput onChange={onChangeAddressDetail} />
-        <ErrorMsg>{addressErrorMsg}</ErrorMsg>
+        <AddressInput />
+        <AddressInput />
       </InputWrapper>
       <InputWrapper>
         <Label>유튜브</Label>
-        <YoutubeInput
-          placeholder="링크를 복사해주세요."
-          onChange={onChangeYoutube}
-        />
-        <ErrorMsg>{youtubeErrorMsg}</ErrorMsg>
+        <YoutubeInput placeholder="링크를 복사해주세요." />
       </InputWrapper>
       <ImageWrapper>
         <Label>사진 첨부</Label>

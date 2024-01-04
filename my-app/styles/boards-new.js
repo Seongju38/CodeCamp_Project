@@ -84,11 +84,6 @@ export const ZipCodeButton = styled.button`
   cursor: pointer;
 `;
 
-export const ZipCodeErrorMsg = styled.div`
-  font-size: 12px;
-  color: red;
-`;
-
 export const AddressInput = styled.input`
   width: 996px;
   height: 52px;
