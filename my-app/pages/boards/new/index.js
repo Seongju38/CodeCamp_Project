@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { gql, useMutation } from "@apollo/client";
 import {
   Wrapper,
   Title,
@@ -23,6 +24,17 @@ import {
   SubmitButton,
 } from "../../../styles/boards-new";
 
+const CREATE_BOARD = gql`
+  mutation createBoard ($createBoardInput: CreateBoardInput!) {
+    createBoard(createBoardInput: $createBoardInput) {
+      _id
+      writer
+      title
+      contents
+    }
+  }
+`;
+
 export default function () {
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
@@ -33,6 +45,8 @@ export default function () {
   const [passwordErrorMsg, setPasswordErrorMsg] = useState("");
   const [subjectErrorMsg, setSubjectErrorMsg] = useState("");
   const [contentErrorMsg, setContentErrorMsg] = useState("");
+
+  const [createBoard] = useMutation(CREATE_BOARD);
 
   const onChangeWriter = (event) => {
     setWriter(event.target.value);
@@ -66,7 +80,7 @@ export default function () {
     }
   };
 
-  const onClickSubmitBtn = () => {
+  const onClickSubmitBtn = async () => {
     if (writer === "") {
       setWriterErrorMsg("작성자를 입력해주세요.");
     }
@@ -84,7 +98,18 @@ export default function () {
     }
 
     if (writer && password && subject && content) {
+      const result = await createBoard({
+        variables: {
+          createBoardInput: {
+            writer: writer,
+            password: password,
+            title: subject,
+            contents: content
+          }
+        }
+      })
       alert("게시글이 등록되었습니다.");
+      console.log(result);
     }
   };
 
